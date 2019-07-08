@@ -67,7 +67,7 @@ rm -rf ~/ngrok
 rm -rf ~/HiddenEye/Server/ngrok
 else
 cd
-git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+(git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git) &> /dev/
 cd - &> /dev/null
 (patch ~/HiddenEye/Defs/Actions.py < remo.Actions.patch) &> /dev/null
 echo -e "\e[1;34m[*] \e[32mActions.py successfully patched..\e[0m";
