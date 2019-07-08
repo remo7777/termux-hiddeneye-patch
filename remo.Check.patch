@@ -1,0 +1,57 @@
+--- Defs/Checks.py	2019-07-08 08:40:52.090999574 +0530
++++ /data/data/com.termux/files/home/HiddenEye/Defs/Checks.py	2019-07-08 08:26:46.820999897 +0530
+@@ -13,12 +13,13 @@
+ 
+ installGetText()
+ languageSelector()
+-	
++
++
+ def checkConnection(host='https://google.com'): #Connection check
+     system('clear')
+     try:
+         urlopen(host, timeout=5)
+-        print(_("{0}HURRAY!! Internet is available.. We can Continue{1}\n\nPlease ZoomIn/ZoomOut To Fit on Your Device Screen.\nPlease ZoomIn/ZoomOut To Fit on Your Device Screen.\nPlease ZoomIn/ZoomOut To Fit on Your Device Screen.\nPlease ZoomIn/ZoomOut To Fit on Your Device Screen.\n\n").format(GREEN, DEFAULT))
++        print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
+         return True
+     except:
+         return False
+@@ -37,17 +38,19 @@
+     if path.isfile('Server/ngrok') == False:  #Is Ngrok downloaded?
+         print(_('[*] Ngrok Not Found !!'))
+         print(_('[*] Downloading Ngrok...'))
+-        if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):
+-            filename = 'ngrok-stable-linux-arm.zip'
++        if 'Android' in str(check_output(('uname', '-a'))):
++            filename = 'Ngrok-linux-arm.zip'
+         else:
+             ostype = systemos().lower()
+             if architecture()[0] == '64bit':
+-                filename = 'ngrok-stable-{0}-amd64.zip'.format(ostype)
++                filename = 'Ngrok-linux-arm.zip'.format(ostype)
+             else:
+                 filename = 'ngrok-stable-{0}-386.zip'.format(ostype)
+-        url = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
++        url = 'https://github.com/remo7777/REMO773/raw/master/' + filename
+         download(url)
+         system('unzip ' + filename)
++        system('rm ~/ngrok -rf')
++        system('cp ngrok ~/ngrok')
+         system('mv ngrok Server/ngrok')
+         system('rm -Rf ' + filename)
+         system('clear')
+@@ -57,11 +60,12 @@
+             if os.getuid() == 0:
+                 print("{0}Permissions granted!".format(GREEN))
+             else:
+-                print("{0}If possible! Please run as administrator!".format(RED))
+-                print("{0}Still We can continue, But May occur errors !! ".format(GREEN))
++                print("{0}If possible!! Please run as sudo !!".format(RED))
++                print("{0}Still We can continue, But May occur errors !! ".format(GREEN)) 
+         elif systemos() == 'Windows':
+             if ctypes.windll.shell32.IsUserAnAdmin() != 0:
+                 print("{0}Permissions granted!".format(GREEN))
++                
+             else:
+                 print("{0}If possible! Please run as administrator!".format(RED))
+                 print("{0}Still We can continue, But May occur errors !! ".format(GREEN))
