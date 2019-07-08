@@ -67,6 +67,7 @@ rm -rf ~/ngrok
 rm -rf ~/HiddenEye/Server/ngrok
 else
 cd
+echo -e "\e[1;34m[*] \e[32mPlease wait HiddenEye downloading..\e[0m";
 (git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git) &> /dev/null
 cd - &> /dev/null
 (patch ~/HiddenEye/Defs/Actions.py < remo.Actions.patch) &> /dev/null
