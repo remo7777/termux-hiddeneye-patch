@@ -77,6 +77,7 @@ echo -e "\e[1;34m[*] \e[32mChecks.py successfully patched..\e[0m";
 rm -rf ~/ngrok
 (pip install -r ~/HiddenEye/req*.txt) &> /dev/null
 echo -e "\e[1;34m[*] \e[32mNow you can use ngrok..\e[0m";
+cd ~/HiddenEye
 	fi
 fi
 exit 0
